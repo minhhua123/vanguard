@@ -88,7 +88,7 @@ html{
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
-h1::before{
+nav h1::before{
     content: "";
     position: absolute;
     top: .5rem;
@@ -96,7 +96,15 @@ h1::before{
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
+}
+nav h1{
+    position: relative; /* ensure the ::before is positioned relative to the h1 */
+    font-family: sans-serif;
+    color: var(--blue);
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1.5rem;
+    padding-left: 5rem;
 }
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
@@ -144,8 +152,125 @@ h1::before{
     animation: stepUp 1s ease-in-out forwards;
 }
 
+nav {
+  background-color: var(--black);
+  min-height: 6rem;
+}
+
+nav ul {
+  width: 100%;
+  margin:0;
+  padding:0;
+  list-style:none;
+  overflow:hidden;
+  text-align:center;
+  max-height: 0;
+}
+nav h2 {
+  visibility:hidden;
+  height:1px;
+}
+nav li a {
+  display:block;
+  font-family:sans-serif;
+  font-size:1.5rem;
+  padding:1rem;
+  text-transform:uppercase;
+  font-weight:bold;
+  text-decoration:none;
+  color: white;
+  transition: background-color .3s ease-in;
+}
+nav a:hover, nav #menu-toggle:hover {
+    background-color: var(--blue);
+    color: var(--black);
+}
+nav #menu-burger {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1.5rem;
+    user-select: none;
+}
+    
+/* BUILDS THE MIDDLE LINE OF THE HAMBURGER */
+#menu-burger span {
+    background-color: rgb(255, 255, 255);
+    display: block;
+    height: .25rem;
+    position: relative;
+    transition: background-color .3s ease-out;
+    width: 2rem;
+}
+/* BUILDS THE TOP AND BOTTOM LINES OF THE HAMBURGER*/
+#menu-burger span:before, #menu-burger span:after {
+    background: rgb(255, 255, 255);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+#menu-burger span:before {
+    top: .75rem;
+}
+#menu-burger span:after {
+    top: -.75rem;
+}
+#menu-toggle {
+  display:none;
+}
+
+/* POSITION THE HAMBURGER AT THE TOP-RIGHT OF THE PAGE */
+#menu-burger {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    z-index: 1;
+}
+
+
+
+/* ADDS HEIGHT THE NAV WHEN IT'S DROPPED DOWN */
+#menu-toggle:checked ~ ul {
+    max-height: 500px;
+}
+/* MAKES THE MIDDLE LINE OF THE HAMBURGER DISAPPEAR */
+#menu-toggle:checked ~ #menu-burger span {
+    background: transparent;
+}
+/* ROTATES THE TOP LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+#menu-toggle:checked ~ #menu-burger span:before {
+    transform: rotate(-45deg);
+}
+/* ROTATES THE BOTTOM LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+#menu-toggle:checked ~ #menu-burger span:after {
+    transform: rotate(45deg);
+}
+/* LOCATION OF THE HAMBURGER */
+#menu-toggle:checked ~ #menu-burger span:before, #menu-toggle:checked ~ #menu-burger span:after {
+    top: 0;
+}
+
+
+
 
 /* MEDIA QUERIES (MEDIUM) */ 
+@media screen and (min-width: 800px){
+    nav ul {
+        overflow:visible;
+        position:absolute;
+        top: 1.5rem;
+        left:.5rem;
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr;
+    }
+    nav li a {
+        display:inline-block;
+    }
+    #menu-burger span, #menu-toggle {
+        display:none;
+    }
 
     #results {
         grid-template-columns: 1fr 1fr;
@@ -160,6 +285,7 @@ h1::before{
     .bar-chart {
         width: 50%;
     }
+}
 
 
 /* MEDIA QUERIES (LARGE) */

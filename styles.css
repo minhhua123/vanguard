@@ -80,14 +80,64 @@ html{
 #hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 1rem;
-    overflow: hidden;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+#hero-banner h2 {
+    font-family: var(--font);
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 600;
+}
+#hero-banner p {
+    font-family: var(--font);
+    color: var(--white);
+    font-size: 1rem;
+    line-height: 1.25;
+}
+#hero-banner .button {
+    background-color: var(--blue);
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in, font-size 0.2s ease-in;
+}
+#hero-banner .button:hover {
+    background-color: var(--red);
+    font-size: 1.1rem;
+}
+
+
+nav{
+    display: flex;
+    padding-bottom: 1rem;
+}
+header {
+    box-shadow: 0px 4px 6px 6px var(--blue);
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
+@keyframes upAnddown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(25px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 nav h1::before{
     content: "";
     position: absolute;
@@ -96,15 +146,18 @@ nav h1::before{
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
+    animation: upAnddown 6s ease-in-out infinite;
 }
 nav h1{
-    position: relative; /* ensure the ::before is positioned relative to the h1 */
+    position: relative;
     font-family: sans-serif;
     color: var(--blue);
     font-size: 2rem;
     font-weight: bold;
     padding: 1.5rem;
     padding-left: 5rem;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
@@ -167,8 +220,7 @@ nav ul {
   max-height: 0;
 }
 nav h2 {
-  visibility:hidden;
-  height:1px;
+  display: none;
 }
 nav li a {
   display:block;
@@ -229,11 +281,10 @@ nav #menu-burger {
     z-index: 1;
 }
 
-
-
 /* ADDS HEIGHT THE NAV WHEN IT'S DROPPED DOWN */
 #menu-toggle:checked ~ ul {
     max-height: 500px;
+    padding-top: 4rem;
 }
 /* MAKES THE MIDDLE LINE OF THE HAMBURGER DISAPPEAR */
 #menu-toggle:checked ~ #menu-burger span {
@@ -251,6 +302,8 @@ nav #menu-burger {
 #menu-toggle:checked ~ #menu-burger span:before, #menu-toggle:checked ~ #menu-burger span:after {
     top: 0;
 }
+
+
 
 
 

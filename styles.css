@@ -68,6 +68,10 @@ table {
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
 html{
     min-width: 400px;
+    font-family: var(--font);
+}
+p{
+    line-height: 1.5;
 }
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -81,30 +85,33 @@ html{
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
     display: flex;
-    gap: 1rem;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
 }
+#hero-banner div {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
 #hero-banner h2 {
-    font-family: var(--font);
     color: var(--white);
     font-size: 2rem;
     font-weight: 600;
 }
 #hero-banner p {
-    font-family: var(--font);
     color: var(--white);
     font-size: 1rem;
-    line-height: 1.25;
 }
 #hero-banner .button {
     background-color: var(--blue);
     color: var(--white);
-    font-family: var(--font);
     font-size: 1rem;
     font-weight: bold;
     padding: 1rem 1rem;
@@ -122,8 +129,11 @@ nav{
     display: flex;
     padding-bottom: 1rem;
 }
+/* Adding box shadow to header and make sure it shows up on top of hero banner */
 header {
-    box-shadow: 0px 4px 6px 6px var(--blue);
+    position: relative;
+    box-shadow: 0px 2px 10px 6px var(--blue);
+    z-index: 10;
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
@@ -303,9 +313,59 @@ nav #menu-burger {
     top: 0;
 }
 
+h2{
+    color: var(--charcoal);
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
 
+.offers {
+    background-color: var(--blue);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    color: var(--white);
+}
+.offers h3 {
+    margin-bottom: .5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
 
+#results {
+    background-color: var(--blue);
+    color: var(--white);
+    margin-bottom: 2rem;
+    padding: 0.1rem 0 1rem 0;
+}
 
+#results h2{
+    color: var(--white);
+    margin-left: 1rem;
+}
+#results table{
+    text-align: center;
+    width: 100%;
+}
+
+#results table td, #results table th {
+    border: 1px solid var(--charcoal);
+    padding: 1rem;
+}
+
+#results table thead {
+    background-color: var(--black);
+}
+#results table tr:nth-child(even) {
+    background-color: var(--charcoal);
+}
+#results table tr:nth-child(odd) {
+    background-color: var(--black);
+}
 
 
 /* MEDIA QUERIES (MEDIUM) */ 

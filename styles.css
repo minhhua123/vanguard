@@ -236,7 +236,7 @@ nav li a {
   display:block;
   font-family:sans-serif;
   font-size:1.5rem;
-  padding:1rem;
+  padding: 2rem;
   text-transform:uppercase;
   font-weight:bold;
   text-decoration:none;
@@ -464,13 +464,19 @@ footer a{
 
 /* MEDIA QUERIES (MEDIUM) */ 
 @media screen and (min-width: 800px){
+    nav{
+        gap: 3rem;
+    }
+    nav h1{
+        margin-top: 0;
+        padding-top: 1.5rem;
+    }
+    
     nav ul {
-        overflow:visible;
-        position:absolute;
+        overflow: visible;
         top: 1.5rem;
-        left:.5rem;
         display: grid;
-        grid-template-columns:1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
     nav li a {
         display:inline-block;
@@ -496,3 +502,8 @@ footer a{
 
 
 /* MEDIA QUERIES (LARGE) */
+@media screen and (min-width: 1024px){
+    nav{
+        gap: 16rem;
+    }
+}

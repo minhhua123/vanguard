@@ -240,7 +240,7 @@ nav li a {
   text-transform:uppercase;
   font-weight:bold;
   text-decoration:none;
-  color: white;
+  color: var(--blue);
   transition: background-color .3s ease-in;
 }
 nav a:hover, nav #menu-toggle:hover {
@@ -312,22 +312,45 @@ nav #menu-burger {
 #menu-toggle:checked ~ #menu-burger span:before, #menu-toggle:checked ~ #menu-burger span:after {
     top: 0;
 }
-
+/* H2 HEADING STYLES */
 h2{
     color: var(--charcoal);
     font-size: 2rem;
     font-weight: bolder;
     margin-bottom: 1.5rem;
     margin-top: 2rem;
+    margin-left: 1rem;
+    animation: slideDown 1s ease;
 }
 
+/* ANIMATION FOR H2 SLIDE DOWN EFFECT ON PAGE LOAD */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* OFFER CARD STYLES WITH HOVER LIFT EFFECT */
 .offers {
+    position: relative;
+    top: 0;
     background-color: var(--blue);
     margin-bottom: 1rem;
     padding: 1.5rem;
     border-radius: 10px;
     color: var(--white);
+    transition: top 0.3s ease-in-out;
 }
+.offers:hover {
+    top: -10px;
+}
+
+/* OFFER CARD HEADING STYLES */
 .offers h3 {
     margin-bottom: .5rem;
     font-size: 1.25rem;
@@ -336,35 +359,106 @@ h2{
     margin-top: 1rem;
 }
 
+/* RESULTS SECTION BACKGROUND AND TEXT */
 #results {
     background-color: var(--blue);
     color: var(--white);
-    margin-bottom: 2rem;
-    padding: 0.1rem 0 1rem 0;
+    padding: 0.1rem 0 2rem 0;
 }
 
+/* RESULTS SECTION HEADING */
 #results h2{
     color: var(--white);
-    margin-left: 1rem;
 }
+
+/* RESULTS TABLE STYLES */
 #results table{
     text-align: center;
     width: 100%;
 }
 
+/* TABLE CELL PADDING AND BORDERS */
 #results table td, #results table th {
     border: 1px solid var(--charcoal);
     padding: 1rem;
 }
 
+/* TABLE HEADER BACKGROUND */
 #results table thead {
     background-color: var(--black);
 }
+
+/* ALTERNATING ROW COLORS FOR TABLE */
 #results table tr:nth-child(even) {
     background-color: var(--charcoal);
 }
 #results table tr:nth-child(odd) {
     background-color: var(--black);
+}
+
+/* CONTACT SECTION STYLES */
+#contact{
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1.5rem 0;
+}
+
+/* CONTACT SECTION HEADING */
+#contact h2{
+    color: var(--white);
+}
+
+/* CONTACT FORM SPACING */
+#contact form{
+    margin-top: 1.5rem;
+}
+
+/* FORM LABEL STYLES */
+section label{
+    display: block;
+    margin-bottom: .5rem;
+}
+
+/* INPUT AND TEXTAREA STYLES */
+input, textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: .75rem;
+    margin-bottom: 1rem;
+    border: solid 3px var(--blue);
+}
+
+/* SUBMIT BUTTON STYLES */
+button[type="submit"] {
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 1rem;
+    width: 100%;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in, font-size 0.2s ease-in;
+}
+
+/* SUBMIT BUTTON HOVER STATE */
+button[type="submit"]:hover {
+    background-color: var(--red);
+    font-size: 1.25rem;
+}
+
+/* FOOTER STYLES */
+footer{
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* FOOTER LINK COLOR */
+footer a{
+    color: var(--blue);
 }
 
 

@@ -236,7 +236,7 @@ nav li a {
   display:block;
   font-family:sans-serif;
   font-size:1.5rem;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   text-transform:uppercase;
   font-weight:bold;
   text-decoration:none;
@@ -336,11 +336,16 @@ h2{
 }
 
 /* OFFER CARD STYLES WITH HOVER LIFT EFFECT */
+.offers-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
 .offers {
     position: relative;
     top: 0;
     background-color: var(--blue);
-    margin-bottom: 1rem;
     padding: 1.5rem;
     border-radius: 10px;
     color: var(--white);
@@ -434,6 +439,7 @@ button[type="submit"] {
     color: var(--white);
     font-size: 1rem;
     width: 100%;
+    height: fit-content;
     font-weight: bold;
     padding: 1rem 1rem;
     border-radius: 5px;
@@ -464,8 +470,10 @@ footer a{
 
 /* MEDIA QUERIES (MEDIUM) */ 
 @media screen and (min-width: 800px){
-    nav{
-        gap: 3rem;
+    nav ul{
+        width: auto;
+        margin-left: auto;
+        margin-right: 15px;
     }
     nav h1{
         margin-top: 0;
@@ -481,6 +489,29 @@ footer a{
     nav li a {
         display:inline-block;
     }
+    #profits {
+        grid-area: Profits;
+    }
+    #profittable {
+        grid-area: PTable;
+    }
+    #growth {
+        grid-area: Growth;
+    }
+    #bar-chart {
+        grid-area: BChart;
+    }
+    #profitngrowth {
+        display: grid;
+        gap: 1rem;
+        grid-template-areas:
+            "Profits Growth"
+            "PTable BChart";
+    }
+    .offers-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
     #menu-burger span, #menu-toggle {
         display:none;
     }
@@ -503,7 +534,12 @@ footer a{
 
 /* MEDIA QUERIES (LARGE) */
 @media screen and (min-width: 1024px){
-    nav{
-        gap: 16rem;
+    .offers-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
 }
